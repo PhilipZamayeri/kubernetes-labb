@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuben-deployment
+  namespace: kubenlabb
+  labels:
+    app: kuben
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kuben
+  template:
+    metadata:
+      labels:
+        app: kuben
+    spec:
+      containers:
+        - name: kuben
+          image: philipzdocker/kuben-labb:0.0.1
+          imagePullPolicy: IfNotPresent
